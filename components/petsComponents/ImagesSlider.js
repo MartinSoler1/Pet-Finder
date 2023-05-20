@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  BsChevronCompactLeft,
-  BsChevronCompactRight,
-  BsFileSlides,
-} from "react-icons/bs";
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 const ImagesSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

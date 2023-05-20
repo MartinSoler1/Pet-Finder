@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Amatic_SC } from "@next/font/google";
+
+const navTitle = Amatic_SC({
+  subsets: ["latin"],
+  weight: ["700"],
+});
 
 const navigation = [
   { name: "Missing Pets", href: "/", current: false },
@@ -21,7 +27,9 @@ function MainNavigation() {
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="flex h-24 items-center">
-              <h1 className="text-black px-4 sm:text-2xl font-mono font-medium ">
+              <h1
+                className={`${navTitle.className} text-black px-4 text-3xl sm:text-5xl font-mono font-medium`}
+              >
                 Pet Finder
               </h1>
               <div className="flex ml-48 items-center sm:hidden">
