@@ -8,12 +8,12 @@ const navTitle = Amatic_SC({
   weight: ["700"],
 });
 
-const navigation = [
+const navigation: { name: string; href: string; current: boolean }[] = [
   { name: "Missing Pets", href: "/", current: false },
   { name: "Add New Pet", href: "new-pet", current: false },
 ];
 
-function classNames(...classes) {
+function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
@@ -52,9 +52,9 @@ function MainNavigation() {
                             : "text-black hover:bg-gray-700 text-xl hover:text-white",
                           "rounded-md px-3 py-2 text-sm font-medium"
                         )}
+                        key={item.name}
                       >
                         <Link
-                          key={item.name}
                           href={item.href}
                           aria-current={item.current ? "page" : undefined}
                         >

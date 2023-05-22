@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
-const ImagesSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [
+interface Image {
+  url: string;
+}
+
+const ImagesSlider: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const images: Image[] = [
     {
       url: "https://antietamhumanesociety.org/wp-content/uploads/2021/08/lost-pets.jpg",
     },
@@ -12,7 +17,7 @@ const ImagesSlider = () => {
       url: "https://media.istockphoto.com/id/1283692900/photo/group-of-different-kind-of-pets-like-cat-dog-rabbit-mouse-chinchilla-guinea-pig-bird-and-fish.jpg?s=612x612&w=0&k=20&c=oRyN_o5XT6UYFtwidjPxYFN9T5v0dBvu4CCAZUUJtW4=",
     },
     {
-      url: "https://www.diabetes.co.uk/wp-content/uploads/2019/01/pets-cats-dog-rabbit.jpg  ",
+      url: "https://www.diabetes.co.uk/wp-content/uploads/2019/01/pets-cats-dog-rabbit.jpg",
     },
     {
       url: "https://albertaanimalservices.ca/wp-content/uploads/2018/02/lost_dog.gif",
@@ -24,7 +29,7 @@ const ImagesSlider = () => {
       if (currentIndex === 3) {
         setCurrentIndex(0);
       } else {
-        setCurrentIndex(currentIndex + 1);
+        setCurrentIndex((prevIndex) => prevIndex + 1);
       }
     }, 5000);
     return () => clearTimeout(timer);
@@ -41,7 +46,8 @@ const ImagesSlider = () => {
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
-  const goToSlide = (imgIndex) => {
+
+  const goToSlide = (imgIndex: number) => {
     setCurrentIndex(imgIndex);
   };
 

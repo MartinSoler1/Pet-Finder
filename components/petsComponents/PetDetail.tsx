@@ -1,6 +1,10 @@
-import React from "react";
-import Card from "../ui/Card";
-const PetDetail = (props) => {
+interface PetDetailProps {
+  date: string;
+  image: string;
+  description: string;
+}
+[];
+const PetDetail: React.FC<PetDetailProps> = (props: PetDetailProps) => {
   return (
     <section className="text-center my-12 mx-auto sm:w-11/12 max-w-2xl">
       <img

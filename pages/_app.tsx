@@ -1,8 +1,10 @@
 import "../styles/globals.css";
 import "tailwindcss/tailwind.css";
-import Layout from "../components/layout/Layout";
 
-function MyApp({ Component, pageProps }) {
+import Layout from "../components/layout/Layout";
+import type { AppProps } from "next/app";
+
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
       <Component {...pageProps} />

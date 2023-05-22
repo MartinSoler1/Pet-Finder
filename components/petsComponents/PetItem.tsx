@@ -1,6 +1,17 @@
 import Card from "../ui/Card";
 import { useRouter } from "next/router";
-function PetItem(props) {
+
+interface PetItemProps {
+  id: string;
+  date: string;
+  image: string;
+  description: string;
+  phone: string;
+  owner: string;
+  address: string;
+}
+
+const PetItem: React.FC<PetItemProps> = (props: PetItemProps) => {
   const router = useRouter();
 
   const showDetailsHandler = () => {
@@ -70,6 +81,6 @@ function PetItem(props) {
       </Card>
     </li>
   );
-}
+};
 
 export default PetItem;

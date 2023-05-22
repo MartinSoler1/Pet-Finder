@@ -1,21 +1,34 @@
 import { useRef } from "react";
 import Card from "../ui/Card";
 
-function NewLostPetForm(props) {
-  const ownerInputRef = useRef();
-  const imageInputRef = useRef();
-  const addressInputRef = useRef();
-  const descriptionInputRef = useRef();
-  const phoneInputRef = useRef();
+interface NewLostPetFormProps {
+  onAddPet: (petData: PetData) => void;
+}
 
-  function submitHandler(event) {
+interface PetData {
+  owner: string;
+  phone: string;
+  image: string;
+  address: string;
+  description: string;
+  date: string;
+}
+
+const NewLostPetForm: React.FC<NewLostPetFormProps> = (props) => {
+  const ownerInputRef = useRef<HTMLInputElement>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
+  const addressInputRef = useRef<HTMLInputElement>(null);
+  const descriptionInputRef = useRef<HTMLTextAreaElement>(null);
+  const phoneInputRef = useRef<HTMLInputElement>(null);
+
+  function submitHandler(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const enteredOwnerName = ownerInputRef.current.value;
-    const enteredphone = phoneInputRef.current.value;
-    const enteredImage = imageInputRef.current.value;
-    const enteredAddress = addressInputRef.current.value;
-    const enteredDescription = descriptionInputRef.current.value;
+    const enteredOwnerName: string = ownerInputRef.current?.value || "";
+    const enteredphone: string = phoneInputRef.current?.value || "";
+    const enteredImage: string = imageInputRef.current?.value || "";
+    const enteredAddress: string = addressInputRef.current?.value || "";
+    const enteredDescription: string = descriptionInputRef.current?.value || "";
     const enteredDate = new Date().toLocaleTimeString([], {
       year: "numeric",
       month: "numeric",
@@ -23,7 +36,7 @@ function NewLostPetForm(props) {
       hour: "2-digit",
       minute: "2-digit",
     });
-    const petData = {
+    const petData: PetData = {
       owner: enteredOwnerName,
       phone: enteredphone,
       image: enteredImage,
@@ -113,7 +126,7 @@ function NewLostPetForm(props) {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="description"
               required
-              rows="5"
+              rows={parseInt("5")}
               ref={descriptionInputRef}
             ></textarea>
           </div>
@@ -129,5 +142,5 @@ function NewLostPetForm(props) {
       </div>
     </Card>
   );
-}
+};
 export default NewLostPetForm;

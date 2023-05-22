@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 import Head from "next/head";
+import { GetStaticProps, NextPage } from "next";
 import LostPetList from "../components/petsComponents/LostPetList";
 import ImagesSlider from "../components/petsComponents/ImagesSlider";
 import { Amatic_SC } from "@next/font/google";
@@ -9,7 +10,21 @@ const h1Font = Amatic_SC({
   weight: ["400"],
 });
 
-const HomePage = (props) => {
+interface Pet {
+  owner: string;
+  phone: string;
+  address: string;
+  image: string;
+  description: string;
+  id: string;
+  date: string;
+}
+
+interface HomePageProps {
+  pets: Pet[];
+}
+
+const HomePage: NextPage<HomePageProps> = (props) => {
   return (
     <>
       <Head>
@@ -28,7 +43,7 @@ const HomePage = (props) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
   const user = process.env.DB_USER;
   const password = process.env.DB_PASS;
   const client = await MongoClient.connect(
@@ -43,7 +58,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      pets: pets.map((pet) => ({
+      pets: pets.map((pet: any) => ({
         owner: pet.owner,
         phone: pet.phone,
         address: pet.address,
@@ -55,6 +70,6 @@ export async function getStaticProps() {
     },
     revalidate: 1,
   };
-}
+};
 
 export default HomePage;

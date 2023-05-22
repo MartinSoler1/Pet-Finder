@@ -1,8 +1,18 @@
 import React from "react";
+import { GetStaticPropsContext, GetStaticPaths } from "next";
 import { MongoClient, ObjectId } from "mongodb";
 import Head from "next/head";
 import PetDetail from "../../components/petsComponents/PetDetail";
-const MeetupDetails = (props) => {
+
+interface MeetupDetailsProps {
+  petData: {
+    image: string;
+    description: string;
+    date: string;
+  };
+}
+
+const MeetupDetails: React.FC<MeetupDetailsProps> = (props) => {
   return (
     <>
       <Head>
@@ -18,17 +28,24 @@ const MeetupDetails = (props) => {
   );
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const user = process.env.DB_USER;
   const password = process.env.DB_PASS;
-  const client = await MongoClient.connect(
+  const client: MongoClient = await MongoClient.connect(
     `mongodb+srv://${user}:${password}@petfinderapp.yitpwio.mongodb.net/?retryWrites=true&w=majority`
   );
   const db = client.db();
 
   const petsCollection = db.collection("pets");
 
-  const pets = await petsCollection.find({}, { _id: 1 }).toArray();
+  const filter: Record<string, unknown> = {};
+  const options: Record<string, number> = { _id: 1 };
+
+  const pets: { _id: string }[] = await petsCollection
+    .find(filter as any, options)
+    .toArray()
+    .then((documents) => documents.map((doc) => ({ _id: doc._id.toString() })));
+
   client.close();
 
   return {
@@ -37,10 +54,9 @@ export async function getStaticPaths() {
       params: { petId: pet._id.toString() },
     })),
   };
-}
-
-export async function getStaticProps(context) {
-  const petId = context.params.petId;
+};
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const petId: string = context.params?.petId as string;
 
   const user = process.env.DB_USER;
   const password = process.env.DB_PASS;
@@ -60,12 +76,14 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      petData: {
-        id: selectedPet._id.toString(),
-        image: selectedPet.image,
-        description: selectedPet.description,
-        date: selectedPet.date,
-      },
+      petData: selectedPet
+        ? {
+            id: selectedPet._id?.toString(),
+            image: selectedPet.image,
+            description: selectedPet.description,
+            date: selectedPet.date,
+          }
+        : null,
     },
   };
 }
