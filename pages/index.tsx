@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
 
   const petsCollection = db.collection("pets");
 
-  const pets = await petsCollection.find().toArray();
+  const pets = await petsCollection.find().sort({ date: -1 }).toArray();
   client.close();
 
   return {
