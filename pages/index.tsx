@@ -4,6 +4,7 @@ import { GetStaticProps, NextPage } from "next";
 import LostPetList from "../components/petsComponents/LostPetList";
 import ImagesSlider from "../components/petsComponents/ImagesSlider";
 import { Amatic_SC } from "@next/font/google";
+import InfoSection from "../components/petsComponents/InfoSection";
 
 const h1Font = Amatic_SC({
   subsets: ["latin"],
@@ -38,6 +39,8 @@ const HomePage: NextPage<HomePageProps> = (props) => {
       <h1 className={`${h1Font.className} text-center text-4xl`}>
         If you see me, please contact my humans!
       </h1>
+      <InfoSection />
+
       <LostPetList pets={props.pets} />
     </>
   );
