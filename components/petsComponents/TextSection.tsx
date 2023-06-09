@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-const InfoSection = () => {
+const TextSection: FC = () => {
   return (
     <>
       <p className="text-center font-mono pt-8 px-24 leading-9">
@@ -15,4 +15,4 @@ const InfoSection = () => {
   );
 };
 
-export default InfoSection;
+export default TextSection;
