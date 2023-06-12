@@ -2,7 +2,6 @@ import PetItem from "./PetItem";
 
 interface Pet {
   id: string;
-
   key: string;
   date: string;
   image: string;
