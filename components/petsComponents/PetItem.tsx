@@ -22,7 +22,7 @@ const PetItem: React.FC<PetItemProps> = (props: PetItemProps) => {
   };
 
   return (
-    <li key={props.id} className="py-4">
+    <li id={props.id} className="py-4">
       <Card>
         <div className="sm:py-5">
           <img

@@ -24,6 +24,7 @@ const LostPetList: React.FC<Props> = (props: Props) => {
       {props.pets.map((pet: Pet) => (
         <PetItem
           id={pet.id}
+          key={pet.id}
           image={pet.image}
           owner={pet.owner}
           phone={pet.phone}

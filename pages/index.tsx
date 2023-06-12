@@ -12,23 +12,20 @@ const h1Font = Amatic_SC({
 });
 
 interface Pet {
+  id: string;
   date: string;
   image: string;
   description: string;
   owner: string;
-  key: string;
   address: string;
   phone: string;
-  id: string;
   country: string;
   city: string;
   zipCode: string;
 }
-
 interface HomePageProps {
   pets: Pet[];
 }
-
 const HomePage: NextPage<HomePageProps> = (props) => {
   return (
     <>
@@ -74,7 +71,6 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
         image: pet.image,
         description: pet.description,
         id: pet._id.toString(),
-        key: pet._id.toString(),
         date: pet.date,
       })),
     },
