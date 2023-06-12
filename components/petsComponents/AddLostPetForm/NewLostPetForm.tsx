@@ -86,7 +86,6 @@ const NewLostPetForm: React.FC<NewLostPetFormProps> = (props) => {
                 setEnteredAddress(event.target.value)
               }
             />
-
             <CityInput
               value={enteredCity}
               handleInputChange={(event) => setEnteredCity(event.target.value)}
@@ -103,13 +102,13 @@ const NewLostPetForm: React.FC<NewLostPetFormProps> = (props) => {
                 setEnteredZipCode(event.target.value)
               }
             />
-            <DescriptionInput
-              value={enteredDescription}
-              handleInputChange={(event) =>
-                setEnteredDescription(event.target.value)
-              }
-            />
           </div>
+          <DescriptionInput
+            value={enteredDescription}
+            handleInputChange={(event) =>
+              setEnteredDescription(event.target.value)
+            }
+          />
           <div className="flex items-center justify-between">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
