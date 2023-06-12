@@ -2,7 +2,6 @@ import PetItem from "./PetItem";
 
 interface Pet {
   id: string;
-  key: string;
   date: string;
   image: string;
   description: string;
@@ -25,7 +24,6 @@ const LostPetList: React.FC<Props> = (props: Props) => {
       {props.pets.map((pet: Pet) => (
         <PetItem
           id={pet.id}
-          key={pet.key}
           image={pet.image}
           owner={pet.owner}
           phone={pet.phone}
