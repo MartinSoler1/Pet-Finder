@@ -5,10 +5,13 @@ interface Pet {
   image: string;
   description: string;
   owner: string;
-  key?: string;
+  key: string;
   address: string;
   phone: string;
   id: string;
+  country: string;
+  city: string;
+  zipCode: string;
 }
 [];
 
@@ -28,6 +31,9 @@ const LostPetList: React.FC<Props> = (props: Props) => {
           phone={pet.phone}
           description={pet.description}
           address={pet.address}
+          country={pet.country}
+          city={pet.city}
+          zipCode={pet.zipCode}
           date={pet.date}
         />
       ))}

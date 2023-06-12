@@ -3,7 +3,7 @@ import React, { FC } from "react";
 const TextSection: FC = () => {
   return (
     <>
-      <p className="text-center font-mono pt-8 px-24 leading-9">
+      <p className="text-center font-mono pt-8 px-8 sm-px-24 leading-9">
         Finding a lost pet can be a stressful experience, but we're here to help
         make the process easier and more efficient for you. Our Pet Finder App
         is designed to connect pet owners with their beloved furry friends,

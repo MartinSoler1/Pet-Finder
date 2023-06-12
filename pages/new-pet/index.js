@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import NewLostPetForm from "../../components/petsComponents/NewLostPetForm";
+import NewLostPetForm from "../../components/petsComponents/AddLostPetForm/NewLostPetForm";
 const NewLostPetPage = () => {
   const router = useRouter();
   const addPetHandler = async (enteredpetData) => {

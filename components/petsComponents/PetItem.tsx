@@ -2,13 +2,15 @@ import Card from "../ui/Card";
 import { useRouter } from "next/router";
 
 interface PetItemProps {
-  id: string;
-  date: string;
+  owner: string;
+  phone: string;
   image: string;
   description: string;
-  phone: string;
-  owner: string;
+  date: string;
   address: string;
+  city: string;
+  country: string;
+  zipCode: string;
 }
 
 const PetItem: React.FC<PetItemProps> = (props: PetItemProps) => {
@@ -58,14 +60,45 @@ const PetItem: React.FC<PetItemProps> = (props: PetItemProps) => {
                   {props.phone}
                 </dd>
               </div>
-              <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt className="text-sm font-semibold leading-6 text-gray-900">
-                  Last Seen
+              <section>
+                <dt className="text-sm font-semibold leading-6 py-8 text-gray-900">
+                  Last seen location
                 </dt>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  {props.address}
-                </dd>
-              </div>
+                <div className="px-4  flex text-center flex-wrap	sm:px-0">
+                  <div className="w-1/2  ">
+                    <dt className="text-sm font-semibold leading-6 text-gray-900">
+                      Address line
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {props.address}
+                    </dd>
+                  </div>
+                  <div className="w-1/2 ">
+                    <dt className="text-sm font-semibold leading-6 text-gray-900">
+                      City
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {props.city}
+                    </dd>
+                  </div>
+                  <div className="w-1/2 my-4">
+                    <dt className="text-sm font-semibold leading-6 text-gray-900">
+                      Country
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {props.country}
+                    </dd>
+                  </div>
+                  <div className="w-1/2 my-4">
+                    <dt className="text-sm font-semibold leading-6 text-gray-900">
+                      Zip code
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {props.zipCode}
+                    </dd>
+                  </div>
+                </div>
+              </section>
             </dl>
           </div>
         </div>
