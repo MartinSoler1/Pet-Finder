@@ -1,6 +1,11 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
-const PhoneInput = (props) => {
+interface PhoneInputProps {
+  value: string;
+  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const PhoneInput: React.FC<PhoneInputProps> = (props) => {
   return (
     <div className="mb-4">
       <label
@@ -12,7 +17,7 @@ const PhoneInput = (props) => {
       <input
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         id="phone"
-        type="string"
+        type="text"
         value={props.value}
         onChange={props.handleInputChange}
         required

@@ -1,8 +1,13 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
-const AddressInput = (props) => {
+interface AddressInputProps {
+  value: string;
+  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const AddressInput: React.FC<AddressInputProps> = (props) => {
   return (
-    <div className="mb-6 sm:w-1/2 ">
+    <div className="mb-6 sm:w-1/2">
       <label
         className="block text-gray-700 text-sm font-bold mb-2"
         htmlFor="adress"
@@ -11,7 +16,7 @@ const AddressInput = (props) => {
       </label>
       <input
         className="shadow appearance-none border sm:w-72 w-full rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        placeholder="Pet last seen adress"
+        placeholder="Pet last seen address"
         id="adress"
         type="text"
         value={props.value}

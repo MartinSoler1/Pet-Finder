@@ -1,6 +1,11 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
-const DescriptionInput = (props) => {
+interface DescriptionInputProps {
+  value: string;
+  handleInputChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
+const DescriptionInput: React.FC<DescriptionInputProps> = (props) => {
   return (
     <div className="mb-6">
       <label
@@ -15,7 +20,7 @@ const DescriptionInput = (props) => {
         value={props.value}
         onChange={props.handleInputChange}
         required
-        rows={parseInt("5")}
+        rows={5}
       ></textarea>
     </div>
   );

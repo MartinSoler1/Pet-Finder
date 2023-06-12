@@ -1,6 +1,11 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
-const ContactNameInput = (props) => {
+interface ContactNameInputProps {
+  value: string;
+  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const ContactNameInput: React.FC<ContactNameInputProps> = (props) => {
   return (
     <div className="mb-4">
       <label

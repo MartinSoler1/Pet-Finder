@@ -1,6 +1,11 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
-const ImageInput = (props) => {
+interface ImageInputProps {
+  value: string;
+  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const ImageInput: React.FC<ImageInputProps> = (props) => {
   return (
     <div className="mb-6">
       <label
