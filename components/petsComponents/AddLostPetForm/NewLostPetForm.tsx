@@ -55,7 +55,6 @@ const NewLostPetForm: React.FC<NewLostPetFormProps> = (props) => {
       description: enteredDescription,
       date: enteredDate,
     };
-    console.log(petData);
     props.onAddPet(petData);
   }
 

@@ -74,6 +74,7 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
         image: pet.image,
         description: pet.description,
         id: pet._id.toString(),
+        key: pet._id.toString(),
         date: pet.date,
       })),
     },

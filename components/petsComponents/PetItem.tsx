@@ -2,6 +2,8 @@ import Card from "../ui/Card";
 import { useRouter } from "next/router";
 
 interface PetItemProps {
+  id: string;
+  key: string;
   owner: string;
   phone: string;
   image: string;
