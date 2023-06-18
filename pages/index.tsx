@@ -58,7 +58,7 @@ export const getServerSideProps: GetServerSideProps<
 
   const petsCollection = db.collection("pets");
 
-  const pets = await petsCollection.find().sort({ date: -1 }).toArray();
+  const pets = await petsCollection.find().sort({ _id: -1 }).toArray();
   client.close();
 
   return {
