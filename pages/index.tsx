@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 import Head from "next/head";
-import { GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import LostPetList from "../components/petsComponents/LostPetList";
 import ImagesSlider from "../components/petsComponents/ImagesSlider";
 import { Amatic_SC } from "@next/font/google";
@@ -46,7 +46,9 @@ const HomePage: NextPage<HomePageProps> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<
+  HomePageProps
+> = async () => {
   const user = process.env.DB_USER;
   const password = process.env.DB_PASS;
   const client = await MongoClient.connect(
@@ -74,7 +76,6 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
         date: pet.date,
       })),
     },
-    revalidate: 1,
   };
 };
 
