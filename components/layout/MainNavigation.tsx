@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Amatic_SC } from "@next/font/google";
+import UserMenuButton from "./UserMenuButton";
 
 const navTitle = Amatic_SC({
   subsets: ["latin"],
@@ -65,6 +66,7 @@ function MainNavigation() {
                   </div>
                 </div>
               </div>
+              <UserMenuButton />
             </div>
           </div>
 

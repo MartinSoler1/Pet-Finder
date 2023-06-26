@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Card from "../../ui/Card";
-import AddressInput from "./AddressInput";
-import CityInput from "./CityInput";
-import ContactNameInput from "./ContactNameInput";
-import CountryInput from "./CountryInput";
-import DescriptionInput from "./DescriptionInput";
-import ImageInput from "./ImageInput";
-import PhoneInput from "./PhoneInput";
-import ZipCodeInput from "./ZipCodeInput";
+import AddressInput from "./formInputs/AddressInput";
+import CityInput from "./formInputs/CityInput";
+import ContactNameInput from "./formInputs/ContactNameInput";
+import CountryInput from "./formInputs/CountryInput";
+import DescriptionInput from "./formInputs/DescriptionInput";
+import ImageInput from "./formInputs/ImageInput";
+import PhoneInput from "./formInputs/PhoneInput";
+import ZipCodeInput from "./formInputs/ZipCodeInput";
 interface NewLostPetFormProps {
   onAddPet: (petData: PetData) => void;
 }

@@ -1,10 +1,10 @@
 import { MongoClient } from "mongodb";
 import Head from "next/head";
 import { GetServerSideProps, NextPage } from "next";
-import LostPetList from "../components/petsComponents/LostPetList";
-import ImagesSlider from "../components/petsComponents/ImagesSlider";
+import LostPetList from "../components/petsComponents/homeComponents/LostPetList";
+import ImagesSlider from "../components/petsComponents/homeComponents/ImagesSlider";
 import { Amatic_SC } from "@next/font/google";
-import TextSection from "../components/petsComponents/TextSection";
+import TextSection from "../components/petsComponents/homeComponents/TextSection";
 
 const h1Font = Amatic_SC({
   subsets: ["latin"],

@@ -1,5 +1,6 @@
 import MainNavigation from "./MainNavigation";
 import React, { ReactNode } from "react";
+import Providers from "../../Providers";
 
 type LayoutProps = {
   children: ReactNode;
@@ -7,10 +8,10 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div>
+    <Providers>
       <MainNavigation />
       <main>{children}</main>
-    </div>
+    </Providers>
   );
 };
 

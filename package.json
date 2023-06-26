@@ -8,18 +8,23 @@
     "start": "next start"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.14",
+    "@headlessui/react": "^0.0.0-insiders.0a9276d",
     "@heroicons/react": "^2.0.18",
     "@next/font": "^13.4.3",
+    "axios": "^1.4.0",
+    "bcryptjs": "^2.4.3",
     "eslint-config-next": "^13.4.3",
     "mongodb": "^5.4.0",
+    "mongoose": "^7.2.3",
     "next": "^13.4.3",
+    "next-auth": "^4.22.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "touch-cli": "^0.0.1"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/react": "^18.2.6",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.23",

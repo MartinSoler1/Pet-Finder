@@ -2,7 +2,7 @@ import React from "react";
 import { GetStaticPropsContext, GetStaticPaths } from "next";
 import { MongoClient, ObjectId } from "mongodb";
 import Head from "next/head";
-import PetDetail from "../../components/petsComponents/PetDetail";
+import PetDetail from "../../components/petsComponents/homeComponents/PetDetail";
 
 interface MeetupDetailsProps {
   petData: {
