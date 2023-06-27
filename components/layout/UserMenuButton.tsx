@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { useSession } from "next-auth/react";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { UserCircleIcon } from "@heroicons/react/24/outline";
 
 const UserMenuButton = () => {
@@ -60,16 +59,15 @@ const UserMenuButton = () => {
           ) : (
             <Menu.Item>
               {({ active }) => (
-                <a
+                <button
                   onClick={() => signOut()}
-                  href="/register"
                   className={classNames(
-                    active ? "bg-gray-100" : "api/auth/signout",
+                    active ? "bg-gray-100 block w-full text-start" : "",
                     "block px-4 py-2 text-sm text-gray-700"
                   )}
                 >
                   Sign out
-                </a>
+                </button>
               )}
             </Menu.Item>
           )}
