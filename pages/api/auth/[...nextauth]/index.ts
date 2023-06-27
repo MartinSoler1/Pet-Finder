@@ -1,10 +1,10 @@
-import NextAuth from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { connectDB } from "../../../../libs/mongoose";
 import User from "../../../../models/users";
 import bcrypt from "bcryptjs";
 
-export const authOptions = {
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -12,7 +12,7 @@ export const authOptions = {
         email: { label: "Email", type: "email", placeholder: "jsmith" },
         password: { label: "Password", type: "password", placeholder: "*****" },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         await connectDB();
         console.log(credentials);
         const userFound = await User.findOne({
@@ -32,14 +32,16 @@ export const authOptions = {
   pages: {
     signIn: "/login",
   },
-
+  session: {
+    strategy: "jwt",
+  },
   callbacks: {
-    jwt({ token, user }) {
+    async jwt({ token, user }: any) {
       if (user) token.user = user;
 
       return token;
     },
-    session({ session, token }) {
+    async session({ session, token }: any) {
       session.user = token.user;
       return session;
     },
