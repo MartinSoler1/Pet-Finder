@@ -21,7 +21,6 @@ const RegisterPage = () => {
         redirect: false,
       });
       if (res?.ok) return router.push("/");
-      console.log(res);
     } catch (error) {
       console.log(error);
       if (error instanceof AxiosError) {

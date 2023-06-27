@@ -16,7 +16,6 @@ const LoginPage = () => {
     });
     if (res?.error) return setError(res.error as string);
     if (res?.ok) return router.push("/");
-    console.log(res);
   };
   return (
     <>
