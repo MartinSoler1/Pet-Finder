@@ -12,7 +12,7 @@ export const authOptions = {
         email: { label: "Email", type: "email", placeholder: "jsmith" },
         password: { label: "Password", type: "password", placeholder: "*****" },
       },
-      async authorize(credentials) {
+      async authorize(credentials, req) {
         await connectDB();
         console.log(credentials);
         const userFound = await User.findOne({
@@ -34,12 +34,12 @@ export const authOptions = {
   },
 
   callbacks: {
-    async jwt({ token, user }) {
+    jwt({ token, user }) {
       if (user) token.user = user;
 
       return token;
     },
-    async session({ session, token }) {
+    session({ session, token }) {
       session.user = token.user;
       return session;
     },
