@@ -1,6 +1,6 @@
 import MainNavigation from "./MainNavigation";
 import React, { ReactNode } from "react";
-import Providers from "../../Providers";
+import Providers from "../../pages/Providers";
 
 type LayoutProps = {
   children: ReactNode;
