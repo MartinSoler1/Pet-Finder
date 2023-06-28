@@ -13,7 +13,7 @@ const LoginPage = () => {
     const res = await signIn("credentials", {
       email: formData.get("email"),
       password: formData.get("password"),
-      redirect: false,
+      redirect: true,
     });
     if (res?.error) return setError(res.error as string);
     if (res?.ok) return router.push("/new-pet");
