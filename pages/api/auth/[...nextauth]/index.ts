@@ -36,9 +36,8 @@ export const authOptions: AuthOptions = {
     strategy: "jwt",
   },
   callbacks: {
-    async jwt({ token, user }: any) {
-      if (user) token.user = user;
-
+    async jwt({ token }) {
+      token.userRole = "admin";
       return token;
     },
     async session({ session, token }: any) {
