@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 const LoginPage = () => {
   const [error, setError] = useState("");
   const router = useRouter();
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -15,7 +16,7 @@ const LoginPage = () => {
       redirect: false,
     });
     if (res?.error) return setError(res.error as string);
-    if (res?.ok) return router.push("/");
+    if (res?.ok) return router.push("/new-pet");
   };
   return (
     <>
